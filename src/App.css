@@ -1,0 +1,10 @@
+@font-face {
+  font-family: Dusha;
+  src: url('./Fonts/Dusha.ttf');
+}
+
+body {
+  background-color: #262626 !important;
+  background-image: url('./fon2.jpg');
+  background-repeat: no-repeat;
+}
