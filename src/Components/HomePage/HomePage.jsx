@@ -3,6 +3,7 @@ import { useStyles } from "./HomePage.styles";
 import { Container, Grid } from '@material-ui/core';
 import GameBox from "../GameBox/GameBox";
 import NewsBox from "../NewsBox/NewsBox";
+import CalendarSmall from "../CalendarSmall/CalendarSmall";
 
 
 
@@ -22,6 +23,9 @@ const HomePage = () => {
             </Grid>
             <Grid item xs={12}>
               <GameBox type='last'/>
+            </Grid>
+            <Grid item xs={12}>
+              <CalendarSmall />
             </Grid>
           </Grid>
         </Grid>
