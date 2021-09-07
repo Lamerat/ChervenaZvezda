@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/ChervenaZvezda/static/css/main.98d670d7.chunk.css",
+    "main.js": "/ChervenaZvezda/static/js/main.4e977861.chunk.js",
+    "main.js.map": "/ChervenaZvezda/static/js/main.4e977861.chunk.js.map",
+    "runtime-main.js": "/ChervenaZvezda/static/js/runtime-main.90125985.js",
+    "runtime-main.js.map": "/ChervenaZvezda/static/js/runtime-main.90125985.js.map",
+    "static/js/2.13a36a7d.chunk.js": "/ChervenaZvezda/static/js/2.13a36a7d.chunk.js",
+    "static/js/2.13a36a7d.chunk.js.map": "/ChervenaZvezda/static/js/2.13a36a7d.chunk.js.map",
+    "index.html": "/ChervenaZvezda/index.html",
+    "static/css/main.98d670d7.chunk.css.map": "/ChervenaZvezda/static/css/main.98d670d7.chunk.css.map",
+    "static/js/2.13a36a7d.chunk.js.LICENSE.txt": "/ChervenaZvezda/static/js/2.13a36a7d.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/ChervenaZvezda/static/media/fon2.580fcd27.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.90125985.js",
+    "static/js/2.13a36a7d.chunk.js",
+    "static/css/main.98d670d7.chunk.css",
+    "static/js/main.4e977861.chunk.js"
+  ]
+}
