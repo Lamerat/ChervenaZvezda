@@ -15,9 +15,9 @@ const MainMenu = () => {
 
   return (
     <div className={styles.main} onMouseLeave={() => setHoverButton(null)}>
-      <div className={styles.button} onMouseEnter={() => setHoverButton(1)} onClick={() => history.push('/')}>НАЧАЛО</div>
+      <div className={styles.button} onMouseEnter={() => setHoverButton(1)} onClick={() => history.push('/ChervenaZvezda/')}>НАЧАЛО</div>
       <div className={styles.separator}/>
-      <div className={styles.button} onMouseEnter={() => setHoverButton(2)} onClick={() => history.push('/club')}>
+      <div className={styles.button} onMouseEnter={() => setHoverButton(2)} onClick={() => history.push('/ChervenaZvezda/club')}>
         КЛУБ
         <div className={styles.dropDown} style={hoverButton === 2 ? {display: 'block'} : {display: 'none'}}>
           <div className={styles.menuItem} >ИСТОРИЯ</div>

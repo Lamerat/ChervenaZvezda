@@ -11,8 +11,8 @@ function App() {
         <Router>
           <Header/>
           <Switch>
-            <Route exact path='/' component={HomePage}/>
-            <Route exact path='/club' component={AboutClub}/>
+            <Route exact path='/ChervenaZvezda' component={HomePage}/>
+            <Route exact path='/ChervenaZvezda/club' component={AboutClub}/>
           </Switch>
         </Router>
     </Theme>

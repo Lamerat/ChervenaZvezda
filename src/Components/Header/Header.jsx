@@ -7,7 +7,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import { useStyles } from "./Header.styles";
 
 
-const logo = '/images/Logo.svg';
+const logo = './images/Logo.svg';
 
 
 const Header = () => {
