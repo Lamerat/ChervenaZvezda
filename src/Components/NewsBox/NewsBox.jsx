@@ -58,7 +58,7 @@ const NewsBox = ({type}) => {
       } else {
         setCurrentNews(currentNews + 1)
       }
-    }, 2000);
+    }, 5000);
 
     return () => clearInterval(checkForMessages);
   }, [currentNews]);
