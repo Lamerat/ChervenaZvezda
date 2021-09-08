@@ -5,6 +5,7 @@ import GameBox from "../GameBox/GameBox";
 import NewsBox from "../NewsBox/NewsBox";
 import CalendarSmall from "../CalendarSmall/CalendarSmall";
 import Banner from "../Banner/Banner";
+import ImageSlider from "../ImageSlider/ImageSlider";
 
 
 
@@ -30,8 +31,6 @@ const HomePage = () => {
             </Grid>
           </Grid>  
         </Grid>
-
-
         <Grid item xs={3}>
           <Grid container spacing={3}>
             <Grid item xs={12}>
@@ -44,6 +43,9 @@ const HomePage = () => {
               <CalendarSmall />
             </Grid>
           </Grid>
+        </Grid>
+        <Grid item xs={12}>
+          <ImageSlider/>
         </Grid>
       </Grid>
     </Container>

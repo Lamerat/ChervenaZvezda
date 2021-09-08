@@ -1,4 +1,4 @@
-import { Container, Paper, Divider, Typography } from '@material-ui/core';
+import { Container, Paper, Typography } from '@material-ui/core';
 import React from 'react';
 import { useStyles } from './AboutClub.styles';
 

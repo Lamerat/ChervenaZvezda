@@ -8,3 +8,7 @@ body {
   background-image: url('./fon2.jpg');
   background-repeat: no-repeat;
 }
+
+.image-gallery-content .image-gallery-slide .image-gallery-image {
+  max-height: calc(100vh - 100px)
+}
