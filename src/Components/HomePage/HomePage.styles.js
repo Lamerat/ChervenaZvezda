@@ -7,5 +7,8 @@ export const useStyles = makeStyles((theme) => ({
     padding: 0,
   },
 
-  
+  banners: {
+    display: 'flex',
+    justifyContent: 'space-between'
+  }
 }));
