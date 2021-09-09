@@ -1,5 +1,6 @@
-import { Container, Paper, Typography } from '@material-ui/core';
 import React from 'react';
+import { Container, Paper, Typography } from '@material-ui/core';
+import { isBrowser } from "react-device-detect";
 import { useStyles } from './AboutClub.styles';
 
 
@@ -10,7 +11,7 @@ const AboutClub = () => {
     <Container className={styles.main}>
       <Paper variant='elevation' elevation={5} className={styles.paperStyle}>
         <div className={styles.topDiv}>
-          <Typography variant='h4' className={styles.title}>За клуба</Typography>
+          <Typography variant={isBrowser ? 'h4' : 'h5'} className={styles.title}>За клуба</Typography>
         </div>
         
         <p>Спортен Клуб СК.Червена звезда – София е учреден на 26.11.2002г. в град София.</p>

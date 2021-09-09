@@ -1,20 +1,21 @@
 import { makeStyles } from '@material-ui/core/styles';
-
+import { isBrowser } from "react-device-detect";
 
 export const useStyles = makeStyles((theme) => ({
   main: {
-    marginTop: 40,
+    marginTop: isBrowser ? 40 : 20,
     padding: 0,
   },
 
   paperStyle: {
-    padding: 20,
+    padding: isBrowser ? 20 : 10,
     borderRadius: 0,
-    marginBottom: 50,
+    margin: isBrowser ? 0 : 8,
+    marginBottom: isBrowser ? 50 : 8,
   },
 
   topDiv: {
-    paddingBottom: 4,
+    paddingBottom: isBrowser ? 4 : 1,
     borderBottom: `2px solid ${theme.palette.primary[200]}`
   },
 
