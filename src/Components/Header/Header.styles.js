@@ -143,6 +143,7 @@ export const useStyles = makeStyles((theme) => ({
     right: 0,
     width: '100%',
     boxShadow: '2px 2px 2px black',
+    zIndex: 10,
   },
 
   listRoot: {

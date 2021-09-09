@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Table, TableBody, TableCell, TableRow } from '@material-ui/core';
 import { useStyles } from "./CalendarSmall.styles";
+import { isBrowser } from "react-device-detect";
 
 
 const tempEvents= [
@@ -40,16 +41,18 @@ const tempEvents= [
   },
 ];
 
-
-
-const NestedEvent = ({id, data, activeDay}) => {
+const NestedEvent = ({id, data, activeDay, xPos}) => {
   const styles = useStyles();
+  let leftPos = 0;
+  if (xPos !== 0)  {
+    leftPos = isBrowser ? 0 : (-xPos.offsetLeft + ((window.innerWidth - 340) / 2))
+  } 
 
   const firstLine = new Date(data[0].fullDate).toLocaleDateString('bg-BG', {month: 'long', year: 'numeric'});
   const secondLine = new Date(data[0].fullDate).toLocaleDateString('bg-BG', {weekday: 'long', hour: 'numeric', minute: 'numeric'}); 
 
   return (
-    <div className={styles.nestedDiv} style={{display: activeDay === id ? 'block' : 'none'}}>
+    <div className={styles.nestedDiv} style={{display: activeDay === id ? 'block' : 'none', left: isBrowser ? 'unset'  : leftPos}}>
       <div className={styles.nestedTitle}>
         <div className={styles.dayStyle}>{data[0].day}</div>
         <div className={styles.rightSide}>
@@ -113,6 +116,7 @@ const CalendarSmall = () => {
   const styles = useStyles();
 
   const [activeDay, setActiveDay] = useState(null);
+  const [elementXPos, setElementXPos] = useState(0);
 
   const rows = [0, 7, 14, 21, 28, 35];
   const today = new Date();
@@ -148,18 +152,18 @@ const CalendarSmall = () => {
                   return (<TableCell
                     align='center'
                     style={style ? {backgroundColor: '#424242', cursor: 'pointer'} : null}
-                    onMouseEnter={() => setActiveDay(s)}
+                    onMouseEnter={(e) => {setActiveDay(s); setElementXPos(e.currentTarget)}}
                     key={`${Math.random()}`}
                     className={styles.tableStyle}
                     width='4.28571428571429%'>
                       {
                         style === 'training'
-                        ? <NestedEvent id={s} data={checkList} activeDay={activeDay}/>
+                        ? <NestedEvent id={s} data={checkList} activeDay={activeDay} xPos={elementXPos}/>
                         : null
                       }
                       {
                         style === 'match'
-                        ? <NestedEvent id={s} data={checkList} activeDay={activeDay}/>
+                        ? <NestedEvent id={s} data={checkList} activeDay={activeDay} xPos={elementXPos}/>
                         : null
                       }
                       {s === 0 ? null : s}

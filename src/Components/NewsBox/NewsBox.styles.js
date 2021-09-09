@@ -5,7 +5,7 @@ export const useStyles = makeStyles((theme) => ({
   main: {
     padding: 0,
     margin: 0,
-    boxShadow: '2px 2px 2px black',    
+    boxShadow: '2px 2px 2px black',
     display: 'grid',
     gridTemplateRows: '100%',
     gridTemplateColumns: '70% 30%',
@@ -133,6 +133,79 @@ export const useStyles = makeStyles((theme) => ({
   text: {
     padding: '0px 8px 8px 8px',
     fontSize: '0.875rem',
-  }
+  },
+
+  mobileMain: {
+    borderLeft: '1px solid black',
+    borderTop: '1px solid black',
+    width: '100%',
+    height: '220px',
+    boxShadow: '1.5px 1.5px 1.5px black',
+    backgroundColor: 'white',
+    overflow: 'hidden',
+    position: 'relative',
+  },
+
+  imageStyleMobile: {
+    maxWidth: '100%',
+    objectFit: 'cover',
+    padding: 0,
+  }, 
+
+  newsBody: {
+    position: 'absolute',
+    bottom: 0,
+    backgroundColor: alpha(theme.palette.common.white, 0.65),
+    width: '100%',
+    minHeight: '32%',
+    maxHeight: '32%',
+  },
+
+  titleMobile: {
+    margin: 5,
+    fontSize: '0.8rem',
+    fontWeight: 'bold',
+    borderBottom: `1px solid ${theme.palette.grey[600]}`
+  },
+
+  textMobile: {
+    padding: '0px 5px 5px 5px',
+    fontSize: '0.75rem',
+  },
+
+  mainDateMobile: {
+    fontSize: '1.4rem',
+    padding: 0,
+    paddingTop: 5,
+    flexDirection: 'column',
+    color: 'white',
+    backgroundColor: alpha(theme.palette.primary[900], 0.75),
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    minWidth: 50,
+    maxWidth: 50,
+    minHeight: 50,
+    maxHeight: 50,
+  },
+
+  mountDivMobile: {
+    backgroundColor: alpha(theme.palette.primary[500], 0.5),
+    width: '100%',
+    height: '40%',
+    fontSize: '0.75rem',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  smallDate: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    backgroundColor: alpha(theme.palette.primary[900], 0.75),
+    width: 50,
+    height: 50,
+  },
 
 }));

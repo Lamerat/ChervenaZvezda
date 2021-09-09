@@ -96,7 +96,7 @@ const Header = () => {
 
             <div className={styles.dropDown} style={{display: showMenu ? 'block' : 'none'}}>
               <List component="nav" className={styles.root}>
-                <ListItem button>
+                <ListItem button onClick={() => goToAddress('/ChervenaZvezda/')}>
                   <ListItemText primary="НАЧАЛО" />
                 </ListItem>
                 <Divider variant='middle'/>

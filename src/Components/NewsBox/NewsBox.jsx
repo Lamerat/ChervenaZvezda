@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from '@material-ui/core';
 import { useStyles } from "./NewsBox.styles";
-
+import { BrowserView, MobileView } from "react-device-detect";
 
 const tempNews = [
   {
@@ -48,7 +48,6 @@ const NewsBox = ({type}) => {
   const styles = useStyles();
   const [currentNews, setCurrentNews] = useState(0);
 
-
   const activeNew = tempNews[currentNews];
 
   useEffect(() => {
@@ -64,54 +63,75 @@ const NewsBox = ({type}) => {
   }, [currentNews]);
   
   return (
-    <Container className={styles.main}>
-      <span style={{position: 'relative', fontSize: 0}}>
-        <img className={styles.imageStyle} src={tempNews[currentNews].photo} alt='hockey'/>
-        <div className={styles.mainNew}>
-          <div className={styles.mainNewContainer}>
-            <div className={styles.mainDate}>
-            {new Date(activeNew.date).toLocaleString('bg-BG', { day: '2-digit' })}
-              <div className={styles.mountDiv}>
-              {new Date(activeNew.date).toLocaleString('bg-BG', { month: 'long' })}
-              </div>
-            </div>
-            <div className={styles.textRight}>
-              <div className={styles.title}>{activeNew.title}</div>
-              <div className={styles.text}>{`${activeNew.text.slice(0, 145)} ...`}</div>
-            </div>
-            
-          </div>
-        </div>
-        <div className={styles.arrows}>
-          {
-          tempNews.map((el, index) => (
-            <div key={el.id} className={index === currentNews ? styles.marker : null}></div>
-            ))
-          }
-        </div>
-      </span>
-      <div className={styles.rightSide}>
-        {
-          tempNews.map((el, index) => (
-            <Container className={index === currentNews ? styles.smallNewsActive: styles.smallNews} key={el.id}>
-              <div style={{display: 'flex', flexDirection: 'column', height:'100%', justifyContent: 'space-between'}}>
-                <div>
-                  <div className={index === currentNews ? styles.dateStyleActive : styles.dateStyle}>
-                    {new Date(el.date).toLocaleString('bg-BG', {year: 'numeric', month: 'long', day: 'numeric'})}
+    <>
+      <BrowserView>
+        <Container className={styles.main}>
+          <span style={{position: 'relative', fontSize: 0}}>
+            <img className={styles.imageStyle} src={tempNews[currentNews].photo} alt='hockey'/>
+            <div className={styles.mainNew}>
+              <div className={styles.mainNewContainer}>
+                <div className={styles.mainDate}>
+                {new Date(activeNew.date).toLocaleString('bg-BG', { day: '2-digit' })}
+                  <div className={styles.mountDiv}>
+                  {new Date(activeNew.date).toLocaleString('bg-BG', { month: 'long' })}
                   </div>
-                  <div className={styles.resumeStyle}>{el.title}</div>
                 </div>
-                {
-                  currentNews === index || index === currentNews - 1
-                  ? null
-                  : <div className={styles.lineStyle}></div>
-                }
+                <div className={styles.textRight}>
+                  <div className={styles.title}>{activeNew.title}</div>
+                  <div className={styles.text}>{`${activeNew.text.slice(0, 145)} ...`}</div>
+                </div>
+                
               </div>
-            </Container>
-          ))
-        }
-      </div>
-    </Container>
+            </div>
+            <div className={styles.arrows}>
+              {
+              tempNews.map((el, index) => (
+                <div key={el.id} className={index === currentNews ? styles.marker : null}></div>
+                ))
+              }
+            </div>
+          </span>
+          <div className={styles.rightSide}>
+            {
+              tempNews.map((el, index) => (
+                <Container className={index === currentNews ? styles.smallNewsActive: styles.smallNews} key={el.id}>
+                  <div style={{display: 'flex', flexDirection: 'column', height:'100%', justifyContent: 'space-between'}}>
+                    <div>
+                      <div className={index === currentNews ? styles.dateStyleActive : styles.dateStyle}>
+                        {new Date(el.date).toLocaleString('bg-BG', {year: 'numeric', month: 'long', day: 'numeric'})}
+                      </div>
+                      <div className={styles.resumeStyle}>{el.title}</div>
+                    </div>
+                    {
+                      currentNews === index || index === currentNews - 1
+                      ? null
+                      : <div className={styles.lineStyle}></div>
+                    }
+                  </div>
+                </Container>
+              ))
+            }
+          </div>
+        </Container>
+      </BrowserView>
+      <MobileView>
+        <div className={styles.mobileMain}>
+          <div className={styles.smallDate}>
+            <div className={styles.mainDateMobile}>
+              {new Date(activeNew.date).toLocaleString('bg-BG', { day: '2-digit' })}
+              <div className={styles.mountDivMobile}>
+                {new Date(activeNew.date).toLocaleString('en-US', { month: 'short' })}
+              </div>
+            </div>
+          </div>
+          <div className={styles.newsBody}>
+            <div className={styles.titleMobile}>{activeNew.title.slice(0, 50)}</div>
+            <div className={styles.textMobile}>{`${activeNew.text.slice(0, 104)} ...`}</div>
+          </div>
+          <img className={styles.imageStyleMobile} src={tempNews[currentNews].photo} alt='hockey'/>
+        </div>
+      </MobileView>
+    </>
   )
 }
 

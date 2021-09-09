@@ -1,11 +1,12 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { isBrowser } from "react-device-detect";
 
 
 export const useStyles = makeStyles((theme) => ({
   main: {
     padding: 0,
     margin: 0,
-    boxShadow: '2px 2px 2px black',
+    boxShadow: isBrowser ? '2px 2px 2px black' : '1px 1px 1px black',
   },
 
   title: {

@@ -1,18 +1,19 @@
 import { makeStyles, alpha } from '@material-ui/core/styles';
+import { isBrowser } from "react-device-detect";
 
 
 export const useStyles = makeStyles((theme) => ({
   main: {
     borderTop: '1px solid black',
     borderLeft: '1px solid black',
-    boxShadow: '2px 2px 2px black',
-    height: 132,
+    boxShadow: isBrowser ? '2px 2px 2px black' : '1px 1px 1px black',
+    height: isBrowser ? 132 : 78,
     backgroundColor: 'black',
   },
 
   container: {
     position: 'relative',
-    maxHeight: 131,
+    maxHeight:  isBrowser ? 131 : 77,
     height: '100%',
     maxWidth: '100%',
     overflow: 'hidden',

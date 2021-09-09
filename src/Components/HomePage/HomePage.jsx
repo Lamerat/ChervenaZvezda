@@ -13,44 +13,82 @@ const HomePage = () => {
   const styles = useStyles();
 
   return (
-    <BrowserView>
-      <Container className={styles.main}>
-        <Grid container spacing={3}>
-          <Grid item xs={9}>
-            <Grid container spacing={3}>
-              <Grid item xs={12}>
-                <NewsBox/>
-              </Grid>
-              <Grid item xs={12}>
-                <div className={styles.banners}>
-                  <Banner picture='./images/hockeyCamel.jpg' text='някакъв текст максимум на два реда' link='https://hockeycamel.com/'/>
-                  <Banner picture='./images/isoStar.jpg' text='някакъв текст'/>
-                  <Banner picture='./images/empty.jpg' text='някакъв текст'/>
-                  <Banner picture='./images/empty.jpg' text='някакъв текст'/>
-                  <Banner picture='./images/empty.jpg' text='някакъв текст dasdas dasdas dsasad  dasdasdasasd  sadadasdas'/>
-                </div>
-              </Grid>
-            </Grid>  
-          </Grid>
-          <Grid item xs={3}>
-            <Grid container spacing={3}>
-              <Grid item xs={12}>
-                <GameBox type='next'/>
-              </Grid>
-              <Grid item xs={12}>
-                <GameBox type='last'/>
-              </Grid>
-              <Grid item xs={12}>
-                <CalendarSmall />
+    <>
+      <BrowserView>
+        <Container className={styles.main}>
+          <Grid container spacing={3}>
+            <Grid item xs={9}>
+              <Grid container spacing={3}>
+                <Grid item xs={12}>
+                  <NewsBox/>
+                </Grid>
+                <Grid item xs={12}>
+                  <div className={styles.banners}>
+                    <Banner picture='./images/hockeyCamel.jpg' text='някакъв текст максимум на два реда' link='https://hockeycamel.com/'/>
+                    <Banner picture='./images/isoStar.jpg' text='някакъв текст'/>
+                    <Banner picture='./images/empty.jpg' text='някакъв текст'/>
+                    <Banner picture='./images/empty.jpg' text='някакъв текст'/>
+                    <Banner picture='./images/empty.jpg' text='някакъв текст dasdas dasdas dsasad  dasdasdasasd  sadadasdas'/>
+                  </div>
+                </Grid>
+              </Grid>  
+            </Grid>
+            <Grid item xs={3}>
+              <Grid container spacing={3}>
+                <Grid item xs={12}>
+                  <GameBox type='next'/>
+                </Grid>
+                <Grid item xs={12}>
+                  <GameBox type='last'/>
+                </Grid>
+                <Grid item xs={12}>
+                  <CalendarSmall />
+                </Grid>
               </Grid>
             </Grid>
+            <Grid item xs={12}>
+              <ImageSlider/>
+            </Grid>
           </Grid>
-          <Grid item xs={12}>
+        </Container>
+      </BrowserView>
+      <MobileView>
+        <div className={styles.mobileMainDiv}>
+        <div className={styles.mobileItem}>
+            <NewsBox/>
+          </div>
+          <div className={styles.mobileItem}>
+            <GameBox type='next'/>
+          </div>
+          <div className={styles.mobileItem}>
+            <GameBox type='last'/>
+          </div>
+          <div className={styles.mobileItem}>
+            <CalendarSmall />
+          </div>
+          <div className={styles.mobileItem}>
             <ImageSlider/>
-          </Grid>
-        </Grid>
-      </Container>
-    </BrowserView>
+          </div>
+          <div className={styles.mobileItem}>
+            <div className={styles.banners}>
+              <Banner picture='./images/hockeyCamel.jpg' text='някакъв текст максимум на два реда' link='https://hockeycamel.com/'/>
+              <Banner picture='./images/isoStar.jpg' text='някакъв текст'/>
+            </div>
+          </div>
+          <div className={styles.mobileItem}>
+            <div className={styles.banners}>
+              <Banner picture='./images/empty.jpg' text='някакъв текст максимум на два реда' link='https://hockeycamel.com/'/>
+              <Banner picture='./images/empty.jpg' text='някакъв текст'/>
+            </div>
+          </div>
+          <div className={styles.mobileItem}>
+            <div className={styles.banners} style={{justifyContent: 'center'}}>
+              <Banner picture='./images/empty.jpg' text='някакъв текст максимум на два реда' link='https://hockeycamel.com/'/>
+            </div>
+          </div>
+        </div>
+      </MobileView>
+    </>
   )
 }
 

@@ -1,10 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles';
-
+import { isBrowser } from "react-device-detect";
 
 export const useStyles = makeStyles((theme) => ({
   main: {
-    minWidth: '18%',
-    maxWidth: '18%',
+    minWidth: isBrowser ? '18%' : '48%',
+    maxWidth: isBrowser ? '18%' : '48%',
     padding: 0,
     maxHeight: 100,
   },
@@ -25,7 +25,7 @@ export const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: 60,
     maxHeight: 60,
-    boxShadow: '2px 2px 2px black',
+    boxShadow: isBrowser ? '2px 2px 2px black' : '1.5px 1.5px 1.5px black',
     marginBottom: 10,
   },
 

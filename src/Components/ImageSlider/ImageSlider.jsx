@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
+import AlbumView from '../AlbumView/AlbumView';
 import { useStyles } from './ImageSlider.styles';
+import { isBrowser } from "react-device-detect";
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import AlbumView from '../AlbumView/AlbumView';
 
 const lastAlbums = [
   {
@@ -107,10 +108,10 @@ const ImageSlider = () => {
       className={styles.main}
       dots={false}
       infinite={true}
-      slidesToShow={5}
+      slidesToShow={isBrowser ? 5 : 3}
       slidesToScroll={1}
       autoplay={true}
-      autoplaySpeed={5000}
+      autoplaySpeed={isBrowser ? 5000 : 2000}
       pauseOnDotsHover={false}
       arrows={false}
       touchMove={false}

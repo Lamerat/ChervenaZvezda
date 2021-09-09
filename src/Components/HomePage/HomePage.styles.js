@@ -10,5 +10,14 @@ export const useStyles = makeStyles((theme) => ({
   banners: {
     display: 'flex',
     justifyContent: 'space-between'
+  },
+
+  mobileMainDiv: {
+    marginTop: 20,
+    padding: 8,
+  },
+
+  mobileItem: {
+    paddingBottom: 8,
   }
 }));
