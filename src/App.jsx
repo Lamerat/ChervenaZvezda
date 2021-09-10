@@ -4,6 +4,7 @@ import Theme from './providers/Theme';
 import HomePage from './Components/HomePage/HomePage';
 import './App.css'
 import AboutClub from './Components/AboutClub/AboutClub';
+import TeamHolder from './Components/TeamHolder/TeamHolder';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Switch>
             <Route exact path='/ChervenaZvezda' component={HomePage}/>
             <Route exact path='/ChervenaZvezda/club' component={AboutClub}/>
+            <Route exact path='/ChervenaZvezda/team' component={TeamHolder}/>
           </Switch>
         </Router>
     </Theme>

@@ -31,7 +31,7 @@ const MainMenu = () => {
       <div className={styles.button} onMouseEnter={() => setHoverButton(4)}>
         ОТБОР
         <div className={styles.dropDown} style={hoverButton === 4 ? {display: 'block'} : {display: 'none'}}>
-          <div className={styles.menuItem}>ВРАТАРИ</div>
+          <div className={styles.menuItem} onClick={() => history.push('/ChervenaZvezda/team')}>ВРАТАРИ</div>
           <Divider variant='middle'/>
           <div className={styles.menuItem}>ЗАЩИТНИЦИ</div>
           <Divider variant='middle'/>
