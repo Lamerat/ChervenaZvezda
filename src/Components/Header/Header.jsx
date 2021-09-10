@@ -48,13 +48,11 @@ const Header = () => {
           <div className={styles.overMenu}>
             <div className={styles.redStar}>RED STAR - Sofia</div>
             <div className={styles.buttonSide}>
-
               <div className={styles.topButtonsLine}>
-                <IconButton className={styles.iconButton}><FacebookIcon/></IconButton>
+                <IconButton className={styles.iconButton} onClick={() => window.open('https://www.facebook.com/redstarsofia', '_blank').focus()}><FacebookIcon/></IconButton>
                 <IconButton className={styles.iconButton}><InstagramIcon/></IconButton>
                 <IconButton className={styles.iconButton}><GitHubIcon/></IconButton>
               </div>
-
               <div className={styles.downButtonsLine}>
                 <Button size='small' color='primary' className={styles.langButton} style={{marginRight: 10}} variant='contained'>бг</Button>
                 <Button size='small' color='secondary' className={styles.langButtonBlack} variant='contained'>en</Button>
@@ -93,7 +91,6 @@ const Header = () => {
             <IconButton size='small' style={{padding: 0}} onClick={() => setShowMenu(!showMenu)}>
               <MenuIcon fontSize='small' style={{color: 'white', padding: 0}}/>
             </IconButton>
-
             <div className={styles.dropDown} style={{display: showMenu ? 'block' : 'none'}}>
               <List component="nav" className={styles.root}>
                 <ListItem button onClick={() => goToAddress('/ChervenaZvezda/')}>
@@ -127,7 +124,7 @@ const Header = () => {
                 </ListItem>
                 <Collapse in={open.team} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
-                    <ListItem button className={styles.listNested}>
+                    <ListItem button className={styles.listNested} onClick={() => goToAddress('/ChervenaZvezda/team')}>
                       <ListItemIcon style={{minWidth: 5}}/>
                       <ListItemText primary="ВРАТАРИ" />
                     </ListItem>
@@ -153,12 +150,10 @@ const Header = () => {
                 <ListItem button>
                   <ListItemText primary="МАГАЗИН" />
                 </ListItem>
-
               </List>
             </div>
           </div>
         </div>
-
       </div>
     </MobileView>
     </>

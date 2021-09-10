@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, alpha } from '@material-ui/core/styles';
 import { isBrowser } from "react-device-detect";
 
 export const useStyles = makeStyles((theme) => ({
@@ -12,6 +12,7 @@ export const useStyles = makeStyles((theme) => ({
     borderRadius: 0,
     margin: isBrowser ? 0 : 8,
     marginBottom: isBrowser ? 50 : 8,
+    backgroundColor: alpha(theme.palette.common.white, 1),
   },
 
   topDiv: {
@@ -20,7 +21,6 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     color: 'red',
-    marginBottom: 20,
   },
 
   switchHolder: {
@@ -33,6 +33,14 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.grey[500],
   },
 
+  playersHolder: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'start',
+    marginLeft: -10,
+    marginRight: isBrowser ? -10 : 10,
+  },
+
   mobileSwitches: {
     position: 'absolute',
     backgroundColor: theme.palette.grey[300],
@@ -40,7 +48,7 @@ export const useStyles = makeStyles((theme) => ({
     padding: '10px 10px 10px 15px',
     width: '150px',
     border: '1px solid black',
-    top: -22,
+    top: -2,
     left: 0,
     boxShadow: '1.5px 1.5px 1.5px black',
     zIndex: 5,

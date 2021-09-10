@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Divider, Paper, Typography, IconButton } from '@material-ui/core';
+import { Container, Divider, Paper, Typography, IconButton, Collapse } from '@material-ui/core';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
@@ -54,9 +54,9 @@ const TeamHolder = () => {
   const [showSwitches, setShowSwitches] = useState(false);
 
   const [state, setState] = useState({
-    checkedA: true,
-    checkedB: true,
-    checkedC: true,
+    goalies: true,
+    guards: true,
+    attackers: true,
   });
 
   const handleChange = (event) => {
@@ -70,17 +70,17 @@ const TeamHolder = () => {
           <BrowserView className={styles.switchHolder}>
             <FormGroup row>
               <FormControlLabel
-                control={<Switch checked={state.checkedA} onChange={handleChange} color='primary' name='checkedA' size='small'/>}
+                control={<Switch checked={state.goalies} onChange={handleChange} color='primary' name='goalies' size='small'/>}
                 className={styles.switch}
                 label='вратари'
               />
               <FormControlLabel
-                control={<Switch checked={state.checkedB} onChange={handleChange} color='primary' name='checkedB' size='small'/>}
+                control={<Switch checked={state.guards} onChange={handleChange} color='primary' name='guards' size='small'/>}
                 label='защитници'
                 className={styles.switch}
               />
               <FormControlLabel
-                control={<Switch checked={state.checkedC} onChange={handleChange} color='primary'  name='checkedC' size='small'/>}
+                control={<Switch checked={state.attackers} onChange={handleChange} color='primary'  name='attackers' size='small'/>}
                 label='нападатели'
                 className={styles.switch}
               />
@@ -90,7 +90,6 @@ const TeamHolder = () => {
             <IconButton size='small' onClick={() => setShowSwitches(!showSwitches)}>
               <TuneIcon color='primary'/>
             </IconButton>
-            
           </MobileView>
           <Typography variant={isBrowser ? 'h4' : 'h5'}>Състав</Typography>
         </div>
@@ -98,30 +97,51 @@ const TeamHolder = () => {
           <div className={styles.mobileSwitches} style={{display: showSwitches ? 'flex' : 'none'}} onClick={(e) => e.preventDefault()}>
             <FormGroup row>
               <FormControlLabel
-                control={<Switch checked={state.checkedA} onChange={handleChange} color='primary' name='checkedA' size='small'/>}
+                control={<Switch checked={state.goalies} onChange={handleChange} color='primary' name='goalies' size='small'/>}
                 className={styles.switch}
                 label='вратари'
               />
               <FormControlLabel
-                control={<Switch checked={state.checkedB} onChange={handleChange} color='primary' name='checkedB' size='small'/>}
+                control={<Switch checked={state.guards} onChange={handleChange} color='primary' name='guards' size='small'/>}
                 label='защитници'
                 className={styles.switch}
               />
               <FormControlLabel
-                control={<Switch checked={state.checkedC} onChange={handleChange} color='primary'  name='checkedC' size='small'/>}
+                control={<Switch checked={state.attackers} onChange={handleChange} color='primary'  name='attackers' size='small'/>}
                 label='нападатели'
                 className={styles.switch}
               />
             </FormGroup>
           </div>
         </div>
-        <Typography variant={isBrowser ? 'h5' : 'h6'}>ВРАТАРИ</Typography>
-        <Divider/>
-        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'start', marginLeft: -10, marginRight: isBrowser ? -10 : 10 }}>
-          {
-            tempPlayers.map(player => <PlayerBox key={player.id} playerData={player}/>)
-          }
-        </div>
+
+        <Collapse in={state.goalies} timeout='auto' unmountOnExit style={{marginTop: 20}}>
+          <Typography variant={isBrowser ? 'h5' : 'h6'}>ВРАТАРИ</Typography>
+          <Divider/>
+          <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'start', marginLeft: -10, marginRight: isBrowser ? -10 : 10 }}>
+            {tempPlayers.map(player => <PlayerBox key={player.id} playerData={player}/>)}
+          </div>
+        </Collapse>
+
+        
+
+        <Collapse in={state.guards} timeout='auto' unmountOnExit style={{marginTop: 20}}>
+          <Typography variant={isBrowser ? 'h5' : 'h6'}>ЗАЩИТНИЦИ</Typography>
+          <Divider/>
+          <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'start', marginLeft: -10, marginRight: isBrowser ? -10 : 10 }}>
+            {tempPlayers.map(player => <PlayerBox key={player.id} playerData={player}/>)}
+          </div>
+        </Collapse>
+
+        
+
+        <Collapse in={state.attackers} timeout='auto' unmountOnExit style={{marginTop: 20}}>
+          <Typography variant={isBrowser ? 'h5' : 'h6'}>НАПАДАТЕЛИ</Typography>
+          <Divider/>
+          <div className={styles.playersHolder}>
+            {tempPlayers.map(player => <PlayerBox key={player.id} playerData={player}/>)}
+          </div>
+        </Collapse>
       </Paper>
     </Container>
   )
