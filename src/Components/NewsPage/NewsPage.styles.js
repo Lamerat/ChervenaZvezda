@@ -62,11 +62,28 @@ export const useStyles = makeStyles((theme) => ({
     padding: 20,
   },
 
+  topNewsHolder: {
+    width: '100%',
+    display: 'grid',
+    gridTemplateRows: '100%',
+    gridTemplateColumns: '40% 60%',
+    minHeight: 471,
+    maxHeight: 471,
+  },
+
+  secondNews: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginTop: -10,
+    marginBottom: -10,
+  },
+
   root: {
-    maxWidth: 605,
-    minHeight: 605,
+    maxHeight: '100%',
+    
   },
   media: {
-    height: 140,
+    height: 250,
+    backgroundPosition: 'top'
   },
 }));
