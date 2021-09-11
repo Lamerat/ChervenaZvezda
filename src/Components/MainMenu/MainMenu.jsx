@@ -1,17 +1,47 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import { useStyles } from "./MainMenu.styles";
 import Divider from '@material-ui/core/Divider';
 import { useHistory } from "react-router";
-
+import PlayersFilterContext from "../../contexts/PlayersFilterContext";
 
 
 const MainMenu = () => {
   const [hoverButton, setHoverButton] = useState(null);
-  const history = useHistory();
+  const {setPlayersFilter} = useContext(PlayersFilterContext);
 
+  const history = useHistory();
   const styles = useStyles();
+
+  const goToTeamPage = (playerPosition) => {
+    switch (playerPosition) {
+      case 'goalies':
+        setPlayersFilter({
+          goalies: true,
+          guards: false,
+          attackers: false,
+        })
+        break;
+      case 'guards':
+        setPlayersFilter({
+          goalies: false,
+          guards: true,
+          attackers: false,
+        })
+        break;
+      case 'attackers':
+        setPlayersFilter({
+          goalies: false,
+          guards: false,
+          attackers: true,
+        })
+        break;
+      default:
+        break;
+    }
+    history.push('/ChervenaZvezda/team')
+  }
 
   return (
     <div className={styles.main} onMouseLeave={() => setHoverButton(null)}>
@@ -31,11 +61,11 @@ const MainMenu = () => {
       <div className={styles.button} onMouseEnter={() => setHoverButton(4)}>
         ОТБОР
         <div className={styles.dropDown} style={hoverButton === 4 ? {display: 'block'} : {display: 'none'}}>
-          <div className={styles.menuItem} onClick={() => history.push('/ChervenaZvezda/team')}>ВРАТАРИ</div>
+          <div className={styles.menuItem} onClick={() => goToTeamPage('goalies')}>ВРАТАРИ</div>
           <Divider variant='middle'/>
-          <div className={styles.menuItem}>ЗАЩИТНИЦИ</div>
+          <div className={styles.menuItem} onClick={() => goToTeamPage('guards')}>ЗАЩИТНИЦИ</div>
           <Divider variant='middle'/>
-          <div className={styles.menuItem}>НАПАДАТЕЛИ</div>
+          <div className={styles.menuItem} onClick={() => goToTeamPage('attackers')}>НАПАДАТЕЛИ</div>
         </div>
       </div>
       <div className={styles.separator}/>

@@ -1,5 +1,6 @@
+import React, { useState, useContext } from "react";
 import { Container, Button, IconButton, Divider } from "@material-ui/core";
-import React, { useState } from "react";
+import PlayersFilterContext from "../../contexts/PlayersFilterContext";
 import MainMenu from "../MainMenu/MainMenu";
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -27,6 +28,8 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [open, setOpen] = useState({club: false, team: false});
 
+  const {setPlayersFilter} = useContext(PlayersFilterContext);
+
   const openSubMenu = (name) => {
     setOpen({...open, [name]: !open[name]});
   };
@@ -35,6 +38,35 @@ const Header = () => {
     setShowMenu(false);
     setOpen({club: false, team: false});
     history.push(address);
+  }
+
+  const goToTeamPage = (playerPosition) => {
+    switch (playerPosition) {
+      case 'goalies':
+        setPlayersFilter({
+          goalies: true,
+          guards: false,
+          attackers: false,
+        })
+        break;
+      case 'guards':
+        setPlayersFilter({
+          goalies: false,
+          guards: true,
+          attackers: false,
+        })
+        break;
+      case 'attackers':
+        setPlayersFilter({
+          goalies: false,
+          guards: false,
+          attackers: true,
+        })
+        break;
+      default:
+        break;
+    }
+    goToAddress('/ChervenaZvezda/team')
   }
 
   return (
@@ -124,15 +156,15 @@ const Header = () => {
                 </ListItem>
                 <Collapse in={open.team} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
-                    <ListItem button className={styles.listNested} onClick={() => goToAddress('/ChervenaZvezda/team')}>
+                    <ListItem button className={styles.listNested} onClick={() => goToTeamPage('goalies')}>
                       <ListItemIcon style={{minWidth: 5}}/>
                       <ListItemText primary="ВРАТАРИ" />
                     </ListItem>
-                    <ListItem button className={styles.listNested}>
+                    <ListItem button className={styles.listNested} onClick={() => goToTeamPage('guards')}>
                       <ListItemIcon style={{minWidth: 5}}/>
                       <ListItemText primary="ЗАЩИТНИЦИ" />
                     </ListItem>
-                    <ListItem button className={styles.listNested}>
+                    <ListItem button className={styles.listNested} onClick={() => goToTeamPage('attackers')}>
                       <ListItemIcon style={{minWidth: 5}}/>
                       <ListItemText primary="НАПАДАТЕЛИ" />
                     </ListItem>

@@ -5,10 +5,20 @@ import HomePage from './Components/HomePage/HomePage';
 import './App.css'
 import AboutClub from './Components/AboutClub/AboutClub';
 import TeamHolder from './Components/TeamHolder/TeamHolder';
+import PlayersFilterContext from './contexts/PlayersFilterContext';
+import { useState } from 'react';
+
+const filterPrototype = {
+  goalies: true,
+  guards: true,
+  attackers: true,
+}
 
 function App() {
+  const [playersFilter, setPlayersFilter] = useState(filterPrototype)
   return (
     <Theme>
+      <PlayersFilterContext.Provider value={{playersFilter: playersFilter, setPlayersFilter: setPlayersFilter}}>
         <Router>
           <Header/>
           <Switch>
@@ -17,6 +27,7 @@ function App() {
             <Route exact path='/ChervenaZvezda/team' component={TeamHolder}/>
           </Switch>
         </Router>
+      </PlayersFilterContext.Provider>
     </Theme>
   );
 }
