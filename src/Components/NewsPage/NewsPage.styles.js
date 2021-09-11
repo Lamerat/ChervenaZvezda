@@ -1,4 +1,4 @@
-import { makeStyles, alpha } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { isBrowser } from "react-device-detect";
 
 
@@ -35,6 +35,31 @@ export const useStyles = makeStyles((theme) => ({
     marginLeft: isBrowser ? 0 : -10,
     display: 'flex',
     justifySelf: isBrowser ? 'center' : 'left'
+  },
+
+  floatButton: {
+    position: 'fixed',
+    zIndex: 100,
+    right: 26,
+    bottom: 16,
+  },  
+
+  dateButton: {
+    alignSelf: 'center',
+    justifySelf: 'left',
+    marginLeft: -5
+  },
+
+  dateFilters: {
+    position: 'absolute',
+    border: '1px solid black',
+    backgroundColor: 'antiquewhite',
+    boxShadow: isBrowser ? '2px 2px 5px black' : '1.5px 1.5px 3.5px black',
+    top: -22,
+    minWidth: isBrowser ? 300 : '100%',
+    maxWidth: isBrowser ? 300 : '100%',
+    zIndex: 2,
+    padding: 20,
   },
 
   root: {

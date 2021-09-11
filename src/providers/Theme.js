@@ -11,24 +11,8 @@ const theme = createTheme({
   palette: {
     primary: red,
     secondary: amber,
-    text: {
-      primary: '#333333',
-      secondary: '#FFFFFF'
-    }
+    
   },
-  overrides : {
-    MuiTableSortLabel: {
-      root: {
-        '&$active': {
-          color: null,
-          '&& $icon': {
-            opacity: 1,
-            color: null,
-          },
-        },      
-      }
-    }
-  }
 });
 
 const Theme = ({ children }) => {
