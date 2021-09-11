@@ -56,7 +56,7 @@ const MainMenu = () => {
         </div>
       </div>
       <div className={styles.separator}/>
-      <div className={styles.button} onMouseEnter={() => setHoverButton(3)}>НОВИНИ</div>
+      <div className={styles.button} onMouseEnter={() => setHoverButton(3)} onClick={() => history.push('/ChervenaZvezda/news')}>НОВИНИ</div>
       <div className={styles.separator}/>
       <div className={styles.button} onMouseEnter={() => setHoverButton(4)}>
         ОТБОР

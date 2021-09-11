@@ -147,7 +147,7 @@ const Header = () => {
                 </Collapse>
                 <Divider variant='middle'/>
                 <ListItem button>
-                  <ListItemText primary="НОВИНИ" />
+                  <ListItemText primary="НОВИНИ" onClick={() => goToAddress('/ChervenaZvezda/news')}/>
                 </ListItem>
                 <Divider variant='middle'/>
                 <ListItem button onClick={() => openSubMenu('team')}>

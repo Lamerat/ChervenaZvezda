@@ -7,6 +7,7 @@ import AboutClub from './Components/AboutClub/AboutClub';
 import TeamHolder from './Components/TeamHolder/TeamHolder';
 import PlayersFilterContext from './contexts/PlayersFilterContext';
 import { useState } from 'react';
+import NewsPage from './Components/NewsPage/NewsPage';
 
 const filterPrototype = {
   goalies: true,
@@ -23,6 +24,7 @@ function App() {
           <Header/>
           <Switch>
             <Route exact path='/ChervenaZvezda' component={HomePage}/>
+            <Route exact path='/ChervenaZvezda/news' component={NewsPage}/>
             <Route exact path='/ChervenaZvezda/club' component={AboutClub}/>
             <Route exact path='/ChervenaZvezda/team' component={TeamHolder}/>
           </Switch>
