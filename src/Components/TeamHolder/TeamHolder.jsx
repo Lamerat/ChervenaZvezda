@@ -15,7 +15,7 @@ const tempPlayers = [
     id: 1,
     firstName: 'Иван',
     lastName: 'Иванов',
-    photo: './images/moni.jpg',
+    photo: './images/moni1.jpg',
     number: 13,
     position: 'вратар',
     birthDate: '1993-05-12',
@@ -26,7 +26,7 @@ const tempPlayers = [
     id: 2,
     firstName: 'Васил',
     lastName: 'Василев',
-    photo: './images/kiki.jpg',
+    photo: './images/kiki1.jpg',
     number: 8,
     position: 'Защитник',
     birthDate: '1992-03-11',
@@ -47,20 +47,27 @@ const tempPlayers = [
   
 ]
 
+const filterPrototype = {
+  goalies: true,
+  guards: true,
+  attackers: true,
+}
+
 
 const TeamHolder = () => {
   const styles = useStyles();
 
   const [showSwitches, setShowSwitches] = useState(false);
 
-  const [state, setState] = useState({
-    goalies: true,
-    guards: true,
-    attackers: true,
-  });
+  const [state, setState] = useState(filterPrototype);
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
+  };
+
+  const mobileSwitch = (event) => {
+    console.log (event.target.name)
+    setState({ ...state, [event.target.name]: !state[event.target.name] });
   };
 
   return (
@@ -97,17 +104,17 @@ const TeamHolder = () => {
           <div className={styles.mobileSwitches} style={{display: showSwitches ? 'flex' : 'none'}} onClick={(e) => e.preventDefault()}>
             <FormGroup row>
               <FormControlLabel
-                control={<Switch checked={state.goalies} onChange={handleChange} color='primary' name='goalies' size='small'/>}
+                control={<Switch checked={state.goalies} onClick={mobileSwitch} color='primary' name='goalies' size='small'/>}
                 className={styles.switch}
                 label='вратари'
               />
               <FormControlLabel
-                control={<Switch checked={state.guards} onChange={handleChange} color='primary' name='guards' size='small'/>}
+                control={<Switch checked={state.guards} onClick={mobileSwitch} color='primary' name='guards' size='small'/>}
                 label='защитници'
                 className={styles.switch}
               />
               <FormControlLabel
-                control={<Switch checked={state.attackers} onChange={handleChange} color='primary'  name='attackers' size='small'/>}
+                control={<Switch checked={state.attackers} onClick={mobileSwitch} color='primary'  name='attackers' size='small'/>}
                 label='нападатели'
                 className={styles.switch}
               />
@@ -116,8 +123,8 @@ const TeamHolder = () => {
         </div>
 
         <Collapse in={state.goalies} timeout='auto' unmountOnExit style={{marginTop: 20}}>
-          <Typography variant={isBrowser ? 'h5' : 'h6'}>ВРАТАРИ</Typography>
-          <Divider/>
+          <Typography className={styles.sectionStyle} variant={isBrowser ? 'h5' : 'h6'}>ВРАТАРИ</Typography>
+          <Divider className={styles.dividerStyle}/>
           <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'start', marginLeft: -10, marginRight: isBrowser ? -10 : 10 }}>
             {tempPlayers.map(player => <PlayerBox key={player.id} playerData={player}/>)}
           </div>
@@ -126,8 +133,8 @@ const TeamHolder = () => {
         
 
         <Collapse in={state.guards} timeout='auto' unmountOnExit style={{marginTop: 20}}>
-          <Typography variant={isBrowser ? 'h5' : 'h6'}>ЗАЩИТНИЦИ</Typography>
-          <Divider/>
+          <Typography className={styles.sectionStyle} variant={isBrowser ? 'h5' : 'h6'}>ЗАЩИТНИЦИ</Typography>
+          <Divider className={styles.dividerStyle}/>
           <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'start', marginLeft: -10, marginRight: isBrowser ? -10 : 10 }}>
             {tempPlayers.map(player => <PlayerBox key={player.id} playerData={player}/>)}
           </div>
@@ -136,8 +143,8 @@ const TeamHolder = () => {
         
 
         <Collapse in={state.attackers} timeout='auto' unmountOnExit style={{marginTop: 20}}>
-          <Typography variant={isBrowser ? 'h5' : 'h6'}>НАПАДАТЕЛИ</Typography>
-          <Divider/>
+          <Typography className={styles.sectionStyle} variant={isBrowser ? 'h5' : 'h6'}>НАПАДАТЕЛИ</Typography>
+          <Divider className={styles.dividerStyle}/>
           <div className={styles.playersHolder}>
             {tempPlayers.map(player => <PlayerBox key={player.id} playerData={player}/>)}
           </div>

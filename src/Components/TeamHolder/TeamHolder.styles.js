@@ -12,15 +12,16 @@ export const useStyles = makeStyles((theme) => ({
     borderRadius: 0,
     margin: isBrowser ? 0 : 8,
     marginBottom: isBrowser ? 50 : 8,
-    backgroundColor: alpha(theme.palette.common.white, 1),
+    backgroundColor: alpha(theme.palette.common.white, 0.02),
+    border: 0,
   },
 
   topDiv: {
     paddingBottom: isBrowser ? 4 : 1,
-    borderBottom: `2px solid ${theme.palette.primary[200]}`,
+    borderBottom: `2px solid white`,
     display: 'flex',
     justifyContent: 'space-between',
-    color: 'red',
+    color: 'white',
   },
 
   switchHolder: {
@@ -30,7 +31,15 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   switch: {    
-    color: theme.palette.grey[500],
+    color: isBrowser ? theme.palette.grey[400] : 'black',
+  },
+
+  sectionStyle: {
+    color: theme.palette.grey[400],
+  },
+
+  dividerStyle: {
+    backgroundColor: alpha(theme.palette.common.white, 0.2),
   },
 
   playersHolder: {

@@ -42,7 +42,7 @@ const Header = () => {
     <BrowserView>
       <Container className={styles.main}>
         <div className={styles.logoContainer}>
-          <img src={logo} alt='logo' className={styles.logoImage}/>
+          <img src={logo} alt='logo' className={styles.logoImage} onClick={() => history.push('/ChervenaZvezda/')}/>
         </div>
         <div className={styles.rightHolder}>
           <div className={styles.overMenu}>
@@ -66,7 +66,7 @@ const Header = () => {
     <MobileView>
       <div style={{display: 'flex', justifyContent: 'flex-start', minHeight: 75}}>
         <div className={styles.logoContainer}>
-          <img src={logo} alt='logo' className={styles.logoImage}/>
+          <img src={logo} alt='logo' className={styles.logoImage} onClick={() => history.push('/ChervenaZvezda/')}/>
         </div>
         <div className={styles.rightHolder}>
           <div className={styles.overMenu}>

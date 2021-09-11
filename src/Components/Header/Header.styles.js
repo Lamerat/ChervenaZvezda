@@ -21,7 +21,8 @@ export const useStyles = makeStyles((theme) => ({
 
   logoImage: {
     width: isBrowser ? 200 : 100,
-    filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.6))'
+    filter: 'drop-shadow(5px 5px 5px rgb(0 0 0 / 0.6))',
+    cursor: 'pointer',
   },
 
   rightHolder: {

@@ -17,10 +17,10 @@ const MainMenu = () => {
     <div className={styles.main} onMouseLeave={() => setHoverButton(null)}>
       <div className={styles.button} onMouseEnter={() => setHoverButton(1)} onClick={() => history.push('/ChervenaZvezda/')}>НАЧАЛО</div>
       <div className={styles.separator}/>
-      <div className={styles.button} onMouseEnter={() => setHoverButton(2)} onClick={() => history.push('/ChervenaZvezda/club')}>
+      <div className={styles.button} onMouseEnter={() => setHoverButton(2)}>
         КЛУБ
         <div className={styles.dropDown} style={hoverButton === 2 ? {display: 'block'} : {display: 'none'}}>
-          <div className={styles.menuItem} >ИСТОРИЯ</div>
+          <div className={styles.menuItem} onClick={() => history.push('/ChervenaZvezda/club')}>ИСТОРИЯ</div>
           <Divider variant='middle'/>
           <div className={styles.menuItem}>КОНТАКТИ</div>
         </div>

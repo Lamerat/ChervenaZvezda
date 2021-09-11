@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SunEditor, { buttonList } from 'suneditor-react';
+import SunEditor from 'suneditor-react';
 import { Container, Paper, Typography } from '@material-ui/core';
 import { isBrowser } from "react-device-detect";
 import { useStyles } from './AboutClub.styles';
@@ -7,13 +7,7 @@ import 'suneditor/dist/css/suneditor.min.css'
 import parser from 'html-react-parser';
 
 
-const AboutClub = () => {
-  const styles = useStyles();
-
-  const [text, setText] = useState('');
-
-
-  const value= `<p>Спортен Клуб СК.Червена звезда – София е учреден на 26.11.2002г. в град София.</p>
+const value= `<p>Спортен Клуб СК.Червена звезда – София е учреден на 26.11.2002г. в град София.</p>
   <p>За Председател и Секретар съответно бяха избрани Пламен Гълъбов и Микулаш Фурнаджиев.</p>
   <p>Завършили Национална Спортна Академия „Васил Левски” гр.София Клуб СК.червена звезда – София е вписан в националния регистър на лицензираните спортни организации и членуващите в тях спортни клубове под №1-074-008 / 30.03.2004, като член на "Българска
       Федерация по Хокей Лед". Целитe на клуба са да развива и пополизира хокея на лед и ин-лаин хокея на територията на София.</p>
@@ -46,7 +40,13 @@ const AboutClub = () => {
   <p>Треньорите в хокей клуб СК.червена звезда – София</p>
   <p>В хокей клуб СК.червена звезда – София , залагаме на специалисти завършили висше спортно образование,който да се занимават професионално със спортистите в клуба.</p>
   <p>Пламен Гълъбов - Завършил Национална Спортна Академия</p>
-  <p>Микулаш Фурнаджиев - Завършил Национална Спортна Академ</p>`
+  <p>Микулаш Фурнаджиев - Завършил Национална Спортна Академия</p>`
+
+
+const AboutClub = () => {
+  const styles = useStyles();
+  const [text, setText] = useState(value);
+  const [editMode, setEditMode] = useState(false);
 
   return (
     <Container className={styles.main}>
@@ -54,27 +54,30 @@ const AboutClub = () => {
         <div className={styles.topDiv} id='elka'>
           <Typography variant={isBrowser ? 'h4' : 'h5'} className={styles.title}>За клуба</Typography>
         </div>
-        {parser(text)}
-        <SunEditor
-          lang='en'
-          width='100%'
-          height='400px'
-          setContents={text}
-          onChange={setText}
-          on
-          defaultValue={value}
-          setOptions={
-            {
-              buttonList: [
-                ['undo', 'redo', 'font', 'fontSize', 'formatBlock'],
-                ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript', 'removeFormat'],
-                
-                ['fontColor', 'hiliteColor', 'outdent', 'indent', 'align', 'horizontalRule', 'list', 'table'],
-                ['link', 'image', 'video', 'fullScreen', 'showBlocks', 'codeView', 'preview', 'print', 'save']
-            ],
-            }            
-          }
-          />
+        {
+          !editMode
+            ? parser(text)
+            : (
+                <SunEditor
+                  lang='en'
+                  width='100%'
+                  height='400px'
+                  setContents={text}
+                  onChange={setText}
+                  defaultValue={value}
+                  setOptions={
+                    {
+                      buttonList: [
+                        ['undo', 'redo', 'fontSize', 'formatBlock'],
+                        ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript', 'removeFormat'],
+                        ['fontColor', 'hiliteColor', 'outdent', 'indent', 'align', 'horizontalRule', 'list', 'table'],
+                        ['link', 'image', 'video', 'fullScreen', 'showBlocks']
+                      ],
+                    }            
+                  }
+                />
+              )
+        }
       </Paper>
     </Container>
   )
