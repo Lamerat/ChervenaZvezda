@@ -78,6 +78,13 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: -10,
   },
 
+  allNewsHolder: {
+    display: 'flex',
+    marginTop: 10,
+    marginLeft: -20,
+    flexWrap: 'wrap',
+  },
+
   root: {
     maxHeight: '100%',
     
