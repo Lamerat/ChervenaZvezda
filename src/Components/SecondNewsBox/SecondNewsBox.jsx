@@ -1,12 +1,13 @@
 import { Paper, Typography } from '@material-ui/core';
 import React from 'react';
+import { isBrowser } from 'react-device-detect';
 import { useStyles } from './SecondNewsBox.styles';
 
 
 
 
 const SecondNewsBox = ({newsData, size = 'medium'}) => {
-  const maxText = size === 'medium' ? 180 : 100 ;
+  const maxText = size === 'medium' ? 180 : isBrowser ? 100 : 80;
   const maxTitle = size === 'medium' ? 42 : 25;
   
   const styles = useStyles();
@@ -38,9 +39,9 @@ const SecondNewsBox = ({newsData, size = 'medium'}) => {
             <div className={styles.imageHolder}>
               <img className={styles.smallImage} src={photo} alt='hockey'/>
             </div>
-            <div className={styles.textBox}>
+            <div className={styles.smallTextBox}>
               <Typography variant='body2' color='primary'>{date}</Typography>
-              <Typography className={styles.titleStyle} variant='h5'>
+              <Typography className={styles.smallTitle} variant='h5'>
                 {title.length < maxTitle ? title : title.slice(0, title.lastIndexOf(' ')) + ' ...'}
               </Typography>
             </div>

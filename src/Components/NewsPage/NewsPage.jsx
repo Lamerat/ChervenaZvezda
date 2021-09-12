@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Paper, Typography, Fab, IconButton, Button } from '@material-ui/core';
-import {isBrowser } from 'react-device-detect';
+import {BrowserView, isBrowser, MobileView } from 'react-device-detect';
 import { useStyles } from './NewsPage.styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Pagination from '@material-ui/lab/Pagination';
 import DateRangeIcon from '@material-ui/icons/DateRange';
 import DateFnsUtils from '@date-io/date-fns';
@@ -13,6 +9,7 @@ import DoneIcon from '@material-ui/icons/Done';
 import ClearIcon from '@material-ui/icons/Clear';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import SecondNewsBox from '../SecondNewsBox/SecondNewsBox';
+import MainNewsBox from '../MainNewsBox/MainNewsBox';
 
 const today = new Date();
 
@@ -26,7 +23,7 @@ const NewsPage = () => {
   const tempNews = [
     {
       id: 1,
-      date: '2021-03-12',
+      date: '2021-01-12',
       title: 'Някакво заглавие',
       text: `Международната федерация по хокей на лед (IIHF) обяви, че хокеистите от НХЛ ще участват на олимпийските игри в Пекин през периода 4-20 февруари 2022 г. Изглежда е постигната договореност между IIHF, НХЛ и профсъюзът на играчите в НХЛ. Както е известно, звездите от Лигата участваха на олимпийските игри от 1998 до 2014 г., но управата на НХЛ отказа да пусне играчите за Олимпиадата в Пьончан през 2018 г. НХЛ от своя страна обяви, че си запазва правото да не допусне участие на играчите от Лигата на олимпийските игри в Пекин, ако ситуацията с разпространените на COVID-19 се влоши. 
       „Знам, че мога да говоря от името на всички хокейни фенове в света и с удоволствие да приветстваме решението за връщането на най-добрите хокеисти на олимпийските игри. Проведохме много конструктивни дебати. Положихме много усилия, за да приключат успешно. Искам да благодаря на всички заинтересувани страни за подкрепата“, заяви президентът на IIHF Рене Фазел.
@@ -94,7 +91,7 @@ const NewsPage = () => {
     {
       id: 10,
       date: '2021-12-20',
-      title: 'Какво да е заглавие',
+      title: 'Какво да е заглавие стига да е дълго',
       text: `Ръководството на НХЛ ще вземе решение за участието на играчите от Лигата на олимпийските игри в Пекин 2022 през тази седмица. Това обяви на профила си в социалните мрежи журналистът Джон Шенън, който е известен с връзките си сред хокейните среди в Северна Америка. За момента няма изявено предимство относно това дали НХЛ да пусне или да не пусне играчите си на Олимпиадата`,
       photo: './images/temp10.jpg',
     }
@@ -181,45 +178,28 @@ const NewsPage = () => {
               </div>
             )
         }
-        
-        <div className={styles.topNewsHolder}>
-          <Card variant='elevation' elevation={5} className={styles.root}>
-            <CardActionArea>
-              <CardMedia
-                className={styles.media}
-                image='./images/temp1.jpg'
-              />
-              <CardContent>
-                <Typography gutterBottom variant='h5' component='h2'>
-                  Title
-                </Typography>
-                <Typography variant='body2' color='secondary' component='p'>
-                  Examples of badges containing text, using primary and secondary colors. The badge is applied to its children.
-                  Examples of badges containing text, using primary and secondary colors. The badge is applied to its children.
-                  Examples of badges containing text, using primary and secondary colors. The badge is applied to its children.
-                  Examples of badges containing text, using primary and secondary colors. The badge is applied to its children.
-                  Examples of badges containing text, using primary and secondary colors. The badge is applied to its children.
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-          <div className={styles.secondNews}>
-            <SecondNewsBox newsData={tempNews[1]}/>
-            <SecondNewsBox newsData={tempNews[2]}/>
-            <SecondNewsBox newsData={tempNews[3]}/>
+        <BrowserView>
+          <div className={styles.topNewsHolder}>
+            <MainNewsBox newsData={tempNews[0]}/>
+            <div className={styles.secondNews}>
+              <SecondNewsBox newsData={tempNews[1]}/>
+              <SecondNewsBox newsData={tempNews[2]}/>
+              <SecondNewsBox newsData={tempNews[3]}/>
+            </div>
           </div>
-        </div>
-
-        <div className={styles.allNewsHolder}>
-          <SecondNewsBox newsData={tempNews[4]} size='small'/>
-          <SecondNewsBox newsData={tempNews[5]} size='small'/>
-          <SecondNewsBox newsData={tempNews[6]} size='small'/>
-          <SecondNewsBox newsData={tempNews[7]} size='small'/>
-          <SecondNewsBox newsData={tempNews[8]} size='small'/>
-          <SecondNewsBox newsData={tempNews[9]} size='small'/>
-          
-        </div>
-
+          <div className={styles.allNewsHolder}>
+            <SecondNewsBox newsData={tempNews[4]} size='small'/>
+            <SecondNewsBox newsData={tempNews[2]} size='small'/>
+            <SecondNewsBox newsData={tempNews[6]} size='small'/>
+            <SecondNewsBox newsData={tempNews[7]} size='small'/>
+            <SecondNewsBox newsData={tempNews[8]} size='small'/>
+            <SecondNewsBox newsData={tempNews[9]} size='small'/>
+          </div>
+        </BrowserView>
+        <MobileView>
+          <MainNewsBox newsData={tempNews[0]}/>
+          { tempNews.slice(1).map(news => <SecondNewsBox key={news.id} newsData={news} size='small'/>) }
+        </MobileView>
       </Paper>
     </Container>
   )

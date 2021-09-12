@@ -51,12 +51,15 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   dateFilters: {
-    position: 'absolute',
+    position: isBrowser ? 'absolute' : 'fixed',
     border: '1px solid black',
     backgroundColor: 'antiquewhite',
     boxShadow: isBrowser ? '2px 2px 5px black' : '1.5px 1.5px 3.5px black',
-    top: -22,
-    minWidth: isBrowser ? 300 : '100%',
+    top: isBrowser ? -22 : 138,
+    left: isBrowser ? null : 0,
+    marginLeft: isBrowser ? null : 7,
+    marginRight: isBrowser ? null : 7,
+    minWidth: isBrowser ? 300 : null,
     maxWidth: isBrowser ? 300 : '100%',
     zIndex: 2,
     padding: 20,
