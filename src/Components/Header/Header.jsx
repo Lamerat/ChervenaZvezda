@@ -175,7 +175,7 @@ const Header = () => {
                   <ListItemText primary="МЕДИЯ" />
                 </ListItem>
                 <Divider variant='middle'/>
-                <ListItem button>
+                <ListItem button onClick={() => goToAddress('/ChervenaZvezda/calendar')}>
                   <ListItemText primary="КАЛЕНДАР" />
                 </ListItem>
                 <Divider variant='middle'/>

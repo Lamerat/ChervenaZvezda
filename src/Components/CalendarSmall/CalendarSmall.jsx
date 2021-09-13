@@ -2,44 +2,10 @@ import React, { useState } from "react";
 import { Container, Table, TableBody, TableCell, TableRow } from '@material-ui/core';
 import { useStyles } from "./CalendarSmall.styles";
 import { isBrowser } from "react-device-detect";
+import { tempEvents } from "../../common/tempData";
 
 
-const tempEvents= [
-  {
-    day: 5,
-    fullDate: '2021-09-05',
-    place: 'Пързалка Славия',
-    event: {
-      home: 'Torpedo',
-      homeIcon: './images/Torpedo.png',
-      guest: 'Red Star',
-      guestIcon: './images/RedStar.png',
-      homeScore: 2,
-      guestScore: 4,
-    }
-  },
 
-  {
-    day: 8,
-    fullDate: '2021-09-08',
-    place: 'Зимен дворец',
-    event: 'training'
-  },
-
-  {
-    day: 26,
-    fullDate: '2021-09-26',
-    place: 'Зимен дворец',
-    event: {
-      home: 'Torpedo',
-      homeIcon: './images/RedStar.png',
-      guest: 'Red Star',
-      guestIcon: './images/nsa.jpg',
-      homeScore: 2,
-      guestScore: 4,
-    }
-  },
-];
 
 const NestedEvent = ({id, data, activeDay, xPos}) => {
   const styles = useStyles();
