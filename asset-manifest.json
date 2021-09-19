@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/ChervenaZvezda/static/css/main.7b0ba5bd.chunk.css",
-    "main.js": "/ChervenaZvezda/static/js/main.ec0a028f.chunk.js",
-    "main.js.map": "/ChervenaZvezda/static/js/main.ec0a028f.chunk.js.map",
+    "main.js": "/ChervenaZvezda/static/js/main.bad3f023.chunk.js",
+    "main.js.map": "/ChervenaZvezda/static/js/main.bad3f023.chunk.js.map",
     "runtime-main.js": "/ChervenaZvezda/static/js/runtime-main.90125985.js",
     "runtime-main.js.map": "/ChervenaZvezda/static/js/runtime-main.90125985.js.map",
     "static/css/2.20e183ff.chunk.css": "/ChervenaZvezda/static/css/2.20e183ff.chunk.css",
-    "static/js/2.9fe5087c.chunk.js": "/ChervenaZvezda/static/js/2.9fe5087c.chunk.js",
-    "static/js/2.9fe5087c.chunk.js.map": "/ChervenaZvezda/static/js/2.9fe5087c.chunk.js.map",
+    "static/js/2.6137a275.chunk.js": "/ChervenaZvezda/static/js/2.6137a275.chunk.js",
+    "static/js/2.6137a275.chunk.js.map": "/ChervenaZvezda/static/js/2.6137a275.chunk.js.map",
     "index.html": "/ChervenaZvezda/index.html",
     "static/css/2.20e183ff.chunk.css.map": "/ChervenaZvezda/static/css/2.20e183ff.chunk.css.map",
     "static/css/main.7b0ba5bd.chunk.css.map": "/ChervenaZvezda/static/css/main.7b0ba5bd.chunk.css.map",
-    "static/js/2.9fe5087c.chunk.js.LICENSE.txt": "/ChervenaZvezda/static/js/2.9fe5087c.chunk.js.LICENSE.txt",
+    "static/js/2.6137a275.chunk.js.LICENSE.txt": "/ChervenaZvezda/static/js/2.6137a275.chunk.js.LICENSE.txt",
     "static/media/App.css": "/ChervenaZvezda/static/media/fon2.580fcd27.jpg",
     "static/media/slick-theme.css": "/ChervenaZvezda/static/media/slick.c94f7671.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.90125985.js",
     "static/css/2.20e183ff.chunk.css",
-    "static/js/2.9fe5087c.chunk.js",
+    "static/js/2.6137a275.chunk.js",
     "static/css/main.7b0ba5bd.chunk.css",
-    "static/js/main.ec0a028f.chunk.js"
+    "static/js/main.bad3f023.chunk.js"
   ]
 }
