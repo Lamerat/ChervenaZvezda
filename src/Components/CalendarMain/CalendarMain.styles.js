@@ -22,7 +22,7 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: 20,
     display: 'grid',
     gridTemplateRows: '100%',
-    gridTemplateColumns: isBrowser ? '40% auto 40%' : '70% 30%',
+    gridTemplateColumns: isBrowser ? '40% auto 40%' : 'auto auto auto',
     color: 'red',
   },
 
@@ -30,15 +30,21 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'flex-end',
     color: 'red',
+    
   },
 
   mountSwitch: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: isBrowser ? 'space-between' : 'center',
     alignItems: 'center',
-    fontSize: '1.0rem',
+    fontSize: isBrowser ? '1.0rem' : '0.75rem',
     textTransform: 'uppercase',
     alignSelf: 'end',
+    marginBottom: isBrowser ? null : '3px',
+  },
+
+  arrow: {
+    fontSize: isBrowser ? null : '1rem',
   },
 
   yearStyle: {
@@ -49,7 +55,7 @@ export const useStyles = makeStyles((theme) => ({
 
   inputYearStyle: {
     color: 'red',
-    fontSize: '1.0rem',
+    fontSize: isBrowser ? '1.0rem' : '0.75rem',
     "& .MuiSvgIcon-root": {
       color: theme.palette.primary.main,
     },
@@ -63,16 +69,16 @@ export const useStyles = makeStyles((theme) => ({
   
   tableStyle: {
     padding: 0,
-    border: `4px solid ${theme.palette.grey[600]}`,
+    border: isBrowser ? `4px solid ${theme.palette.grey[600]}` : `2px solid ${theme.palette.grey[600]}`,
     position: 'relative',
     color: 'white',
   },
 
   dayStyle: {
     position: 'absolute',
-    top: 3,
-    left: 8,
-    fontSize: '0.85rem',
+    top: isBrowser ? 3 : 1,
+    left: isBrowser ? 8 : 3,
+    fontSize: isBrowser ? '0.85rem' : '0.7rem',
     zIndex: 4,
   },
 
@@ -80,18 +86,45 @@ export const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     top: 0,
     right: 0,
-    padding: 8,
+    padding: isBrowser ? 8 : 2,
     width: '100%',
     display: 'flex',
+    overflow: 'hidden',
+    flexDirection: isBrowser ? null : 'column-reverse',
     justifyContent: 'space-between',
     alignItems: 'flex-end',
     backgroundColor: 'rgb(66, 66, 66)',
     height: '100%',
     objectFit: 'cover',
-    borderBottom: '5px solid transparent'
+    borderBottom: isBrowser ? '5px solid transparent' : '3px solid transparent'
   },
 
   imageInCell: {
-    height: '100%',
+    height: isBrowser ? '100%' : '60%',
+  },
+
+  trainingText: {
+    color: 'black',
+    fontSize: isBrowser ? null : '0.8rem',
+    alignSelf: isBrowser ? null : 'center'
+  },
+
+  legendDiv: {
+    display: 'flex',
+    alignItems: 'center',
+    marginRight: isBrowser ? 45 : null,
+    paddingBottom: isBrowser ? null : '10px',
+  },
+
+  legendMain: {
+    display: isBrowser ? 'flex' : 'grid',
+    gridTemplateColumns: isBrowser ? null : 'auto auto',
+    marginTop: 20,
+  },
+
+  legendIcon: {
+    fontSize: '18px',
+    marginRight: isBrowser ? 5 : 10,
+    filter: 'drop-shadow(2px 2.5px 2px rgb(0 0 0 / 0.7))',
   }
 }));
