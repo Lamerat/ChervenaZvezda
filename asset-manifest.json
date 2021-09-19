@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ChervenaZvezda/static/css/main.7b0ba5bd.chunk.css",
-    "main.js": "/ChervenaZvezda/static/js/main.bad3f023.chunk.js",
-    "main.js.map": "/ChervenaZvezda/static/js/main.bad3f023.chunk.js.map",
+    "main.js": "/ChervenaZvezda/static/js/main.0a336797.chunk.js",
+    "main.js.map": "/ChervenaZvezda/static/js/main.0a336797.chunk.js.map",
     "runtime-main.js": "/ChervenaZvezda/static/js/runtime-main.90125985.js",
     "runtime-main.js.map": "/ChervenaZvezda/static/js/runtime-main.90125985.js.map",
     "static/css/2.20e183ff.chunk.css": "/ChervenaZvezda/static/css/2.20e183ff.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.20e183ff.chunk.css",
     "static/js/2.6137a275.chunk.js",
     "static/css/main.7b0ba5bd.chunk.css",
-    "static/js/main.bad3f023.chunk.js"
+    "static/js/main.0a336797.chunk.js"
   ]
 }
