@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import Server from './Classes/Server';
 import ArticlesController from './Classes/ArticlesController';
 import Controller from './Classes/Controller';
+import EventsController from './Classes/EventsController';
+import GamesController from './Classes/GamesController';
 
 dotenv.config();
 
@@ -14,6 +16,8 @@ const server = new Server(app, PORT);
 
 const controllers: Array<Controller> = [
   new ArticlesController(),
+  new EventsController(),
+  new GamesController(),
 ];
 
 const globalMiddleware: Array<RequestHandler> = [
