@@ -1,10 +1,13 @@
 import express, { RequestHandler } from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv';
 import Server from './Classes/Server';
 import ArticlesController from './Classes/ArticlesController';
 import Controller from './Classes/Controller';
 
-const PORT = 5000;
+dotenv.config();
+
+const PORT = parseInt(process.env.EXPRESS_PORT || '5555');
 
 const app = express();
 const server = new Server(app, PORT);
