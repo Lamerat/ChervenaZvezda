@@ -14,4 +14,15 @@ export default class ArticlesData {
       return null;
     }
   }
+
+  async updateArticleById (id: number, text: string) {
+    const sqlQuery = `UPDATE articles SET text = ? WHERE is_deleted = 0 AND id = ?`;
+
+    try {
+      await this.db.query(sqlQuery, [text, id]);
+      return await this.getArticleById(id);
+    } catch (e) {
+      return null;
+    }
+  }
 }

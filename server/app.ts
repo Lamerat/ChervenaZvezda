@@ -14,6 +14,7 @@ const controllers: Array<Controller> = [
 ];
 
 const globalMiddleware: Array<RequestHandler> = [
+  express.json(),
   cors(),
 ];
 
