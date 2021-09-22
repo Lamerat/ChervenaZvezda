@@ -1,10 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
 import Controller, { Methods } from './Controller';
-import ArticlesServices from './Services/ArticlesServices';
-import paramIsNumber from '../middlewares/paramIsNumber';
-import errors from '../common/errors';
-import bodyValidator from '../middlewares/bodyValidator';
-import articleValidator from '../validators/article-validator';
+import ArticlesServices from '../Services/ArticlesServices';
+import paramIsNumber from '../../middlewares/paramIsNumber';
+import errors from '../../common/errors';
+import bodyValidator from '../../middlewares/bodyValidator';
+import articleValidator from '../../validators/article-validator';
 
 export default class ArticlesController extends Controller {
   path = '/articles';

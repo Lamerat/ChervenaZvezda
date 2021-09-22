@@ -1,11 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 import Controller, { Methods } from './Controller';
-import paramIsNumber from '../middlewares/paramIsNumber';
-import errors from '../common/errors';
-import EventsServices from './Services/EventsServices';
+import GamesServices from '../Services/GamesServices';
+import paramIsNumber from '../../middlewares/paramIsNumber';
+import errors from '../../common/errors';
 
-export default class EventsController extends Controller {
-  path = '/events';
+
+export default class GamesController extends Controller {
+  path = '/games';
   routes = [
     {
       path: '/:id',
@@ -16,7 +17,7 @@ export default class EventsController extends Controller {
   ];
 
   async getEvent(req: Request, res: Response, next: NextFunction): Promise<void> {
-    const service = new EventsServices();
+    const service = new GamesServices();
     const id = parseInt(req.params.id);
     const { error, data } = await service.getEventById(id);
 

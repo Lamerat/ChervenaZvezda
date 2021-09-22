@@ -1,5 +1,5 @@
 import { Application, RequestHandler, Request, Response } from 'express';
-import Controller from './Controller';
+import Controller from './Controllers/Controller';
 
 class Server {
   private app: Application;

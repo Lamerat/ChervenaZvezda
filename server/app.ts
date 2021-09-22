@@ -2,10 +2,11 @@ import express, { RequestHandler } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import Server from './Classes/Server';
-import ArticlesController from './Classes/ArticlesController';
-import Controller from './Classes/Controller';
-import EventsController from './Classes/EventsController';
-import GamesController from './Classes/GamesController';
+import ArticlesController from './Classes/Controllers/ArticlesController';
+import Controller from './Classes/Controllers/Controller';
+import EventsController from './Classes/Controllers/EventsController';
+import GamesController from './Classes/Controllers/GamesController';
+import TeamsController from './Classes/Controllers/TeamsController';
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ const controllers: Array<Controller> = [
   new ArticlesController(),
   new EventsController(),
   new GamesController(),
+  new TeamsController(),
 ];
 
 const globalMiddleware: Array<RequestHandler> = [
