@@ -9,6 +9,7 @@ import PlayersFilterContext from './contexts/PlayersFilterContext';
 import { useState } from 'react';
 import NewsPage from './Components/NewsPage/NewsPage';
 import CalendarMain from './Components/CalendarMain/CalendarMain';
+import AdminPage from './Components/AdminPage/AdminPage';
 
 const filterPrototype = {
   goalies: true,
@@ -24,11 +25,12 @@ function App() {
         <Router>
           <Header/>
           <Switch>
-            <Route exact path='/ChervenaZvezda' component={HomePage}/>
-            <Route exact path='/ChervenaZvezda/news' component={NewsPage}/>
-            <Route exact path='/ChervenaZvezda/club' component={AboutClub}/>
-            <Route exact path='/ChervenaZvezda/team' component={TeamHolder}/>
-            <Route exact path='/ChervenaZvezda/calendar' component={CalendarMain}/>
+            <Route exact path='/' component={HomePage}/>
+            <Route exact path='/news' component={NewsPage}/>
+            <Route exact path='/club' component={AboutClub}/>
+            <Route exact path='/team' component={TeamHolder}/>
+            <Route exact path='/calendar' component={CalendarMain}/>
+            <Route exact path='/admin' component={AdminPage}/>
           </Switch>
         </Router>
       </PlayersFilterContext.Provider>

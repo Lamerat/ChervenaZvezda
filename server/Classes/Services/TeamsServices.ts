@@ -113,12 +113,16 @@ export default class TeamsServices {
     if (logoFile) {
       let fileExtension: string | string[] = logoFile.name.split('.');
       fileExtension = fileExtension[fileExtension.length - 1];      
-      let newFileName: string = (fileName.logoURL.slice(fileName.logoURL.lastIndexOf('/') + 1)).toString();
+      let newFileName: string = (fileName.logoURL.slice(fileName.logoURL.lastIndexOf('/') + 1)).toString();      
       if (fileName.logoURL === this.defaultLogo){
         newFileName = `${uuidv4()}.${fileExtension}`;
       }
       teamData.logoURL = `http://${this.serverURL}:${this.serverPort}/${this.dirMain}/${this.dirLogos}/${newFileName}`;
-      await logoFile.mv(`./${this.dirMain}/${this.dirLogos}/${newFileName}`)
+      try {
+        await logoFile.mv(`./${this.dirMain}/${this.dirLogos}/${newFileName}`)
+      } catch (e) {
+        
+      }
     } else {
       teamData.logoURL = fileName.logoURL.toString();
     }

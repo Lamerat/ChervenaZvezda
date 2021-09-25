@@ -66,7 +66,7 @@ const Header = () => {
       default:
         break;
     }
-    goToAddress('/ChervenaZvezda/team')
+    goToAddress('/team')
   }
 
   return (
@@ -74,7 +74,7 @@ const Header = () => {
     <BrowserView>
       <Container className={styles.main}>
         <div className={styles.logoContainer}>
-          <img src={logo} alt='logo' className={styles.logoImage} onClick={() => history.push('/ChervenaZvezda/')}/>
+          <img src={logo} alt='logo' className={styles.logoImage} onClick={() => history.push('/')}/>
         </div>
         <div className={styles.rightHolder}>
           <div className={styles.overMenu}>
@@ -98,7 +98,7 @@ const Header = () => {
     <MobileView>
       <div style={{display: 'flex', justifyContent: 'flex-start', minHeight: 75}}>
         <div className={styles.logoContainer}>
-          <img src={logo} alt='logo' className={styles.logoImage} onClick={() => history.push('/ChervenaZvezda/')}/>
+          <img src={logo} alt='logo' className={styles.logoImage} onClick={() => history.push('/')}/>
         </div>
         <div className={styles.rightHolder}>
           <div className={styles.overMenu}>
@@ -125,7 +125,7 @@ const Header = () => {
             </IconButton>
             <div className={styles.dropDown} style={{display: showMenu ? 'block' : 'none'}}>
               <List component="nav" className={styles.root}>
-                <ListItem button onClick={() => goToAddress('/ChervenaZvezda/')}>
+                <ListItem button onClick={() => goToAddress('/')}>
                   <ListItemText primary="НАЧАЛО" />
                 </ListItem>
                 <Divider variant='middle'/>
@@ -135,7 +135,7 @@ const Header = () => {
                 </ListItem>
                 <Collapse in={open.club} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
-                    <ListItem button className={styles.listNested} onClick={() => goToAddress('/ChervenaZvezda/club')}>
+                    <ListItem button className={styles.listNested} onClick={() => goToAddress('/club')}>
                       <ListItemIcon style={{minWidth: 5}}/>
                       <ListItemText primary="ИСТОРИЯ" />
                     </ListItem>
@@ -147,7 +147,7 @@ const Header = () => {
                 </Collapse>
                 <Divider variant='middle'/>
                 <ListItem button>
-                  <ListItemText primary="НОВИНИ" onClick={() => goToAddress('/ChervenaZvezda/news')}/>
+                  <ListItemText primary="НОВИНИ" onClick={() => goToAddress('/news')}/>
                 </ListItem>
                 <Divider variant='middle'/>
                 <ListItem button onClick={() => openSubMenu('team')}>
@@ -175,7 +175,7 @@ const Header = () => {
                   <ListItemText primary="МЕДИЯ" />
                 </ListItem>
                 <Divider variant='middle'/>
-                <ListItem button onClick={() => goToAddress('/ChervenaZvezda/calendar')}>
+                <ListItem button onClick={() => goToAddress('/calendar')}>
                   <ListItemText primary="КАЛЕНДАР" />
                 </ListItem>
                 <Divider variant='middle'/>

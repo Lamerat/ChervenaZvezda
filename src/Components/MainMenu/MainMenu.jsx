@@ -40,23 +40,23 @@ const MainMenu = () => {
       default:
         break;
     }
-    history.push('/ChervenaZvezda/team')
+    history.push('/team')
   }
 
   return (
     <div className={styles.main} onMouseLeave={() => setHoverButton(null)}>
-      <div className={styles.button} onMouseEnter={() => setHoverButton(1)} onClick={() => history.push('/ChervenaZvezda/')}>НАЧАЛО</div>
+      <div className={styles.button} onMouseEnter={() => setHoverButton(1)} onClick={() => history.push('/')}>НАЧАЛО</div>
       <div className={styles.separator}/>
       <div className={styles.button} onMouseEnter={() => setHoverButton(2)}>
         КЛУБ
         <div className={styles.dropDown} style={hoverButton === 2 ? {display: 'block'} : {display: 'none'}}>
-          <div className={styles.menuItem} onClick={() => history.push('/ChervenaZvezda/club')}>ИСТОРИЯ</div>
+          <div className={styles.menuItem} onClick={() => history.push('/club')}>ИСТОРИЯ</div>
           <Divider variant='middle'/>
           <div className={styles.menuItem}>КОНТАКТИ</div>
         </div>
       </div>
       <div className={styles.separator}/>
-      <div className={styles.button} onMouseEnter={() => setHoverButton(3)} onClick={() => history.push('/ChervenaZvezda/news')}>НОВИНИ</div>
+      <div className={styles.button} onMouseEnter={() => setHoverButton(3)} onClick={() => history.push('/news')}>НОВИНИ</div>
       <div className={styles.separator}/>
       <div className={styles.button} onMouseEnter={() => setHoverButton(4)}>
         ОТБОР
@@ -71,7 +71,7 @@ const MainMenu = () => {
       <div className={styles.separator}/>
       <div className={styles.button} onMouseEnter={() => setHoverButton(5)}>МЕДИЯ</div>
       <div className={styles.separator}/>
-      <div className={styles.button} onMouseEnter={() => setHoverButton(6)} onClick={() => history.push('/ChervenaZvezda/calendar')}>КАЛЕНДАР</div>
+      <div className={styles.button} onMouseEnter={() => setHoverButton(6)} onClick={() => history.push('/calendar')}>КАЛЕНДАР</div>
       <div className={styles.separator}/>
       <div className={styles.button} onMouseEnter={() => setHoverButton(7)}>МАГАЗИН</div>
       <div className={styles.endPart}>
