@@ -23,7 +23,7 @@ export default class TeamsController extends Controller {
       path: '/create',
       method: Methods.POST,
       handler: this.createTeam,
-      localMiddleware: [fileUpload({createParentPath: true}), fileValidator, bodyValidator(teamsValidator)]
+      localMiddleware: [fileUpload({createParentPath: true}), fileValidator('logo'), bodyValidator(teamsValidator)]
     },
     {
       path: '/:id',
@@ -41,7 +41,7 @@ export default class TeamsController extends Controller {
       path: '/:id',
       method: Methods.PUT,
       handler: this.updateTeam,
-      localMiddleware: [paramIsNumber, fileUpload({createParentPath: true}), fileValidator, bodyValidator(teamsValidator)]
+      localMiddleware: [paramIsNumber, fileUpload({createParentPath: true}), fileValidator('logo'), bodyValidator(teamsValidator)]
     },
   ];
 

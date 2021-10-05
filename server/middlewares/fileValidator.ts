@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { UploadedFile } from 'express-fileupload';
 
-const fileValidator = (req: Request, res: Response, next: NextFunction) => {
+const fileValidator = (field: string) => (req: Request, res: Response, next: NextFunction) => {
   const FILE_MAX_SIZE = parseInt(process.env.FILE_MAX_SIZE || '5120');
   const VALID_FILE_TYPE = (process.env.FILES_AVAILABLE || 'jpg, png, gif').split(',').map(x => x.toLowerCase().trim());
 
@@ -9,7 +9,7 @@ const fileValidator = (req: Request, res: Response, next: NextFunction) => {
     return next();
   }
 
-  if(!req.files.logo) {
+  if(!req.files[field]) {
     return res.status(400).send( { message: 'invalid file field' } );
   }
 
@@ -17,7 +17,7 @@ const fileValidator = (req: Request, res: Response, next: NextFunction) => {
     return res.status(400).send( { message: 'must attach only one file' } );
   }
 
-  const currentFile = req.files.logo as UploadedFile;
+  const currentFile = req.files[field] as UploadedFile;
   const fileExtension = currentFile.mimetype.slice(currentFile.mimetype.lastIndexOf('/') + 1);
   
   if (!VALID_FILE_TYPE.includes(fileExtension)) {

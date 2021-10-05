@@ -100,10 +100,10 @@ const Teams = () => {
               {
                 activeRow === team.teamId
                 ? <div>
-                    <IconButton>
+                    <IconButton size='small'>
                       <Tooltip title='Edit' arrow><EditIcon/></Tooltip>
                     </IconButton>
-                    <IconButton onClick={()=> prepareDelete(team.teamId)}>
+                    <IconButton size='small' onClick={()=> prepareDelete(team.teamId)}>
                       <Tooltip title='Delete' arrow><DeleteIcon/></Tooltip>
                     </IconButton>
                   </div>

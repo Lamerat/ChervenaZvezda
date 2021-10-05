@@ -8,6 +8,7 @@ import EventsController from './Classes/Controllers/EventsController';
 import GamesController from './Classes/Controllers/GamesController';
 import TeamsController from './Classes/Controllers/TeamsController';
 import ImageController from './Classes/Controllers/ImageController';
+import PlayersController from './Classes/Controllers/PlayersController';
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ const controllers: Array<Controller> = [
   new GamesController(),
   new TeamsController(),
   new ImageController(),
+  new PlayersController(),
 ];
 
 const globalMiddleware: Array<RequestHandler> = [
