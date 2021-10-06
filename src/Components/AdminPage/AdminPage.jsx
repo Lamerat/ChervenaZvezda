@@ -3,6 +3,7 @@ import { useStyles } from './AdminPage.styles';
 import { Container, Paper, Typography, Tabs, Tab, Box } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import Teams from '../Teams/Teams';
+import PlayersTable from '../PlayersTable/PlayersTable';
 
 
 
@@ -18,7 +19,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ p: 1 }}>
           {children}
         </Box>
       )}
@@ -80,7 +81,7 @@ const AdminPage = () => {
           Item 5
         </TabPanel>
         <TabPanel value={value} index={5}>
-          Item 6
+          <PlayersTable />
         </TabPanel>
       </Box>
     </Paper>
